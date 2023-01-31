@@ -30,22 +30,21 @@ const blueFood = changeState("superfeed")(5);
 const water = changeState("water")(1);
 const superWater = changeState("superwater")(5);
 
-const sun = changeState("sunlight")(5);
+const sun = changeState("sun")(5);
 
-
+if (typeof window !== "undefined") {
 window.onload = function() {
-
   // This function has side effects because we are manipulating the DOM.
   // Manipulating the DOM will always be a side effect. 
   // Note that we only use one of our functions to alter soil. 
   // You can easily add more.
   document.getElementById('feed').onclick = function() {
     const newState = stateControl(feed);
-    document.getElementById('feed').innerText = `Soil: ${newState.feed}`;
+    document.getElementById('feed').innerText = `Feed: ${newState.feed}`;
   };
   document.getElementById('superfeed').onclick = function() {
     const newState = stateControl(blueFood);
-    document.getElementById('superfeed').innerText = `Soil: ${newState.superfeed}`;
+    document.getElementById('superfeed').innerText = `Superfeed: ${newState.superfeed}`;
   };
   document.getElementById('water').onclick = function() {
     const newState = stateControl(water);
@@ -55,12 +54,12 @@ window.onload = function() {
     const newState = stateControl(superWater);
     document.getElementById('superwater').innerText = `Water: ${newState.superwater}`;
   };
-  document.getElementById('sunlight').onclick = function() {
+  document.getElementById('sun').onclick = function() {
     const newState = stateControl(sun);
-    document.getElementById('sun').innerText = `Sunlight: ${newState.sun}`;
+    document.getElementById('sun').innerText = `sun: ${newState.sun}`;
   };
   // This function doesn't actually do anything useful in this application 
-  // — it just demonstrates how we can "look" at the current state 
+  //  it just demonstrates how we can "look" at the current state 
   // (which the DOM is holding anyway). 
   // However, students often do need the ability to see the current state 
   // without changing it so it's included here for reference.
@@ -68,10 +67,11 @@ window.onload = function() {
     // We just need to call stateControl() without arguments 
     // to see our current state.
     const currentState = stateControl();
-    document.getElementById('feed').innerText = `Feed: ${currentState.feed}`;
-    document.getElementById('superfeed').innerText = `Superfeed: ${currentState.superfeed}`;
-    document.getElementById('water').innerText = `Water: ${currentState.water}`;
-    document.getElementById('superwater').innerText = `Superwater: ${currentState.superwater}`;
-    document.getElementById('sun').innerText = `Sun: ${currentState.sun}`;
+    document.getElementById('feed1').innerText = `Feed: ${currentState.feed}`;
+    document.getElementById('superfeed1').innerText = `Superfeed: ${currentState.superfeed}`;
+    document.getElementById('water1').innerText = `Water: ${currentState.water}`;
+    document.getElementById('superwater1').innerText = `Superwater: ${currentState.superwater}`;
+    document.getElementById('sun1').innerText = `Sun: ${currentState.sun}`;
   };
 };
+}
